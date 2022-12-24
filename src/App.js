@@ -40,15 +40,8 @@ class App extends Component {
   };
 
   onSaveButtonClick = () => {
-    const {
-      cardName,
-      cardDescription,
-      cardImage,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardRare,
-      cardTrunfo,
+    const { cardName, cardDescription, cardImage, cardAttr1, cardAttr2, cardAttr3,
+      cardRare, cardTrunfo,
     } = this.state;
     const newCard = {
       cardName,
@@ -81,7 +74,7 @@ class App extends Component {
 
   render() {
     const {
-      cardName, cardDescription, cardAttr1, cardAttr2,
+      cardName, cardDescription, cardAttr1, cardAttr2, savedCards,
       cardAttr3, cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled,
     } = this.state;
     return (
@@ -113,6 +106,10 @@ class App extends Component {
           hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
         />
+        { savedCards.map((card, index) => (
+          <section key={ index }>
+            <Card { ...card } />
+          </section>))}
       </div>
     );
   }
