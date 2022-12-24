@@ -10,9 +10,9 @@ class App extends Component {
     cardAttr2: 0,
     cardAttr3: 0,
     cardImage: '',
-    cardRare: '',
+    cardRare: 'normal',
     cardTrunfo: false,
-    hasTrunfo: false,
+    hasTrunfo: '',
     isSaveButtonDisabled: true,
   };
 
@@ -38,6 +38,21 @@ class App extends Component {
        && cardRare && cardImage) && atrsValid) });
   };
 
+  onSaveButtonClick = () => {
+    this.setState({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      hasTrunfo: '',
+      isSaveButtonDisabled: true,
+    });
+  };
+
   render() {
     const {
       cardName, cardDescription, cardAttr1, cardAttr2,
@@ -48,6 +63,16 @@ class App extends Component {
         <h1>Tryunfo</h1>
         <Form
           onInputChange={ this.onInputChange }
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardImage={ cardImage }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
+          hasTrunfo={ hasTrunfo }
+          onSaveButtonClick={ this.onSaveButtonClick }
           isSaveButtonDisabled={ isSaveButtonDisabled }
         />
         <Card
