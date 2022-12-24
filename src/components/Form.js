@@ -13,10 +13,11 @@ class Form extends Component {
       <fieldset>
         <form>
           <label htmlFor="name">
+            Name
             <input
               value={ cardName }
               id="name"
-              name="card-name"
+              name="cardName"
               type="text"
               data-testid="name-input"
               onChange={ onInputChange }
@@ -24,21 +25,23 @@ class Form extends Component {
           </label>
 
           <label htmlFor="description">
+            Description
             <input
               value={ cardDescription }
               id="description"
               type="text"
-              name="description"
+              name="cardDescription"
               data-testid="description-input"
               onChange={ onInputChange }
             />
           </label>
 
           <label htmlFor="number1">
+            Attribute 1
             <input
               value={ cardAttr1 }
               id="number1"
-              name="number1"
+              name="cardAttr1"
               type="number"
               data-testid="attr1-input"
               onChange={ onInputChange }
@@ -46,10 +49,11 @@ class Form extends Component {
           </label>
 
           <label htmlFor="number2">
+            Attribute 2
             <input
               value={ cardAttr2 }
               id="number2"
-              name="number2"
+              name="cardAttr2"
               type="number"
               data-testid="attr2-input"
               onChange={ onInputChange }
@@ -57,10 +61,11 @@ class Form extends Component {
           </label>
 
           <label htmlFor="number3">
+            Attribute 3
             <input
               value={ cardAttr3 }
               id="number3"
-              name="number3"
+              name="cardAttr3"
               type="number"
               data-testid="attr3-input"
               onChange={ onInputChange }
@@ -68,10 +73,11 @@ class Form extends Component {
           </label>
 
           <label htmlFor="image">
+            Card Image
             <input
               value={ cardImage }
               id="image"
-              name="image"
+              name="cardImage"
               type="text"
               data-testid="image-input"
               onChange={ onInputChange }
@@ -79,7 +85,9 @@ class Form extends Component {
           </label>
 
           <label htmlFor="select">
+            Card Type
             <select
+              name="cardRare"
               value={ cardRare }
               id="select"
               data-testid="rare-input"
@@ -92,7 +100,10 @@ class Form extends Component {
           </label>
 
           <label htmlFor="checkbox">
+            HasTrunfo
             <input
+              name="cardTrunfo"
+              value={ cardTrunfo }
               checked={ cardTrunfo }
               data-testid="trunfo-input"
               type="checkbox"
