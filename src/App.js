@@ -13,27 +13,43 @@ class App extends Component {
     cardRare: '',
     cardTrunfo: false,
     hasTrunfo: false,
-    // isSaveButtonDisabled: true,
-
+    isSaveButtonDisabled: true,
   };
 
   onInputChange = (event) => {
     const { name, type, checked } = event.target;
     const value = type === 'checkbox' ? checked : event.target.value;
-    this.setState({
+    this.setState(() => ({
       [name]: value,
-    });
+    }), this.checkAllConditions);
+  };
+
+  checkAllConditions = () => {
+    const {
+      cardName, cardDescription, cardRare, cardImage, cardAttr1, cardAttr2, cardAttr3,
+    } = this.state;
+    const min = 0;
+    const limit = 90;
+    const total = 210;
+    const sum = +cardAttr1 + +cardAttr2 + +cardAttr3;
+    const atrsValid = !((cardAttr1 < min || cardAttr2 < min || cardAttr3 < min)
+     || (cardAttr1 > limit || cardAttr2 > limit || cardAttr3 > limit) || sum > total);
+    this.setState({ isSaveButtonDisabled: !((cardName && cardDescription
+       && cardRare && cardImage) && atrsValid) });
   };
 
   render() {
     const {
       cardName, cardDescription, cardAttr1, cardAttr2,
-      cardAttr3, cardImage, cardRare, cardTrunfo, hasTrunfo,
+      cardAttr3, cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled,
     } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
-        <Form onInputChange={ this.onInputChange } />
+        <Form
+          onInputChange={ this.onInputChange }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
+        />
         <Card
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -44,6 +60,7 @@ class App extends Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
           hasTrunfo={ hasTrunfo }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
         />
       </div>
     );

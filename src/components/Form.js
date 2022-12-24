@@ -3,12 +3,20 @@ import React, { Component } from 'react';
 class Form extends Component {
   render() {
     // hasTrunfo
-    const {
-      cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare,
-      cardTrunfo, isSaveButtonDisabled, onInputChange,
+    const { cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      isSaveButtonDisabled,
+      onInputChange,
       onSaveButtonClick,
+      // hasTrunfo,
     } = this.props;
-
+    // console.log(isSaveButtonDisabled);
     return (
       <fieldset>
         <form>
